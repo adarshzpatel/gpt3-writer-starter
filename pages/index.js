@@ -1,35 +1,83 @@
+import React, {useState} from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
-import buildspaceLogo from '../assets/buildspace-logo.png';
+import Spinner from '../components/Spinner';
 
 const Home = () => {
+  const [userInput,setUserInput] = useState("");
+  const [isGenerating,setIsGenerating] = useState(false);
+  const [apiOutput,setApiOutput] = useState("");
+  
+  const getGeneratedOutput = async () => {
+    setIsGenerating(true);
+    try{ 
+      if(!userInput) throw new Error("Input cannot be empty")
+      const response = await fetch("/api/generate",{
+        method:"POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({userInput})
+      });
+
+      const data = await response.json();
+
+      const {output} = data;
+      setApiOutput(`${output.text}`)
+
+    } catch(err){
+      console.log(err)
+    }
+    setIsGenerating(false)
+  }
+
+  const handleUserInputChange = (event) => {
+    console.log(event.target.value);
+    setUserInput(event.target.value);
+  };
+
   return (
-    <div className="root">
+    <div className=" p-8 gap-8 items-center flex-col mx-auto max-w-screen-md">
       <Head>
-        <title>GPT-3 Writer | buildspace</title>
+        <title>Assignment Helper</title>
       </Head>
-      <div className="container">
-        <div className="header">
-          <div className="header-title">
-            <h1>sup, insert your headline here</h1>
-          </div>
-          <div className="header-subtitle">
-            <h2>insert your subtitle here</h2>
-          </div>
-        </div>
+      <div className='text-center'>
+        <h1 className='text-5xl font-bold'>LinkedIn Post Generator</h1>
+        <h6 className='text-neutral-400 text-xxl mt-4 mb-8'></h6>
       </div>
-      <div className="badge-container grow">
-        <a
-          href="https://buildspace.so/builds/ai-writer"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="badge">
-            <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>build with buildspace</p>
-          </div>
-        </a>
-      </div>
+      <div>
+
+        <div className="flex flex-col gap-2 w-full">
+          <label className='text-neutral-400 font-medium text-sm'>Write a linkedin post about... </label>
+    <textarea
+    placeholder="start typing here"
+    className="prompt-input w-full"
+    value={userInput}
+    onChange={handleUserInputChange}
+    rows={4}
+    />
+  </div>
+  <div className="flex justify-end">
+
+    <button disabled={isGenerating} onClick={getGeneratedOutput} className='flex items-center gap-4 rounded-xl mt-4 bg-emerald-600 focus:ring-1 focus:shadow-2xl ring-white active:bg-emerald-700 py-2 px-4 duration-200 disabled:brightness-75'>
+        {isGenerating ? "Generating":"Generate"}
+        {isGenerating && <Spinner/>}
+    </button>
+    
+  </div>
+    </div>
+   
+  <div>
+
+    {apiOutput && <div className="flex flex-col mt-8 gap-2  w-full">
+          <label className='text-neutral-400 font-medium text-sm'>Ai generated output</label>
+    <div
+    className="prompt-input "
+    >
+    {apiOutput}
+  </div>
+      </div>}
+  </div>
+
     </div>
   );
 };

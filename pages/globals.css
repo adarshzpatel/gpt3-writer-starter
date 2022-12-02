@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  body{
+    @apply bg-neutral-900 text-gray-100 w-screen;
+  }
+  .prompt-input {
+    @apply focus:outline-none;
+    @apply bg-neutral-800/25 focus:bg-neutral-800/50 ring-1 ring-neutral-700 focus:ring-neutral-400 rounded-xl;
+    @apply p-4 duration-200 ease-out;
+  }
+}
