@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Head from 'next/head';
 import Spinner from '../components/Spinner';
-
+import Profile from '../components/Profile';
 const Home = () => {
   const [userInput,setUserInput] = useState("");
   const [isGenerating,setIsGenerating] = useState(false);
@@ -58,7 +58,7 @@ const Home = () => {
   </div>
   <div className="flex justify-end">
 
-    <button disabled={isGenerating} onClick={getGeneratedOutput} className='flex items-center gap-4 rounded-xl mt-4 bg-emerald-600 focus:ring-1 focus:shadow-2xl ring-white active:bg-emerald-700 py-2 px-4 duration-200 disabled:brightness-75'>
+    <button disabled={isGenerating} onClick={getGeneratedOutput} className='flex items-center gap-4 rounded-xl mt-4 hover:bg-amber-500 bg-amber-500/90 focus:ring-1 focus:shadow-2xl ring-white active:bg-amber-600 py-2 px-4 duration-200 disabled:brightness-75'>
         {isGenerating ? "Generating":"Generate"}
         {isGenerating && <Spinner/>}
     </button>
@@ -77,7 +77,7 @@ const Home = () => {
   </div>
       </div>}
   </div>
-
+    <Profile/>
     </div>
   );
 };
