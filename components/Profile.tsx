@@ -11,9 +11,9 @@ const links = {
 
 const Profile = (props: Props) => {
   return (
-<div className='p-[1px] rounded-xl shadow-xl hover:shadow-2xl duration-300 ease-out hover:scale-105 bg-gradient-to-br from-neutral-500 via-neutral-800/50 to-neutral-600 fixed bottom-8 left-[50%] -translate-x-[50%]' >
+<div className='p-[1px] rounded-xl shadow-xl hover:shadow-2xl duration-300 ease-out text-xs md:text-sm lg:text-base hover:scale-105 bg-gradient-to-br from-neutral-500 via-neutral-800/50 to-neutral-600 fixed bottom-8 left-[50%] -translate-x-[50%]' >
     <div className="bg-neutral-800 rounded-xl flex  divide-x divide-neutral-600">
-  <p className='text-neutral-400 p-2 px-4'>  built by <em className='text-violet-300'> Adarsh Patel </em></p>
+  <p className='text-neutral-400 p-2 px-4 flex-1 flex gap-2 items-center w-full whitespace-nowrap'>  built by <em className='text-violet-300'>Adarsh Patel </em></p>
   <a href={links.GITHUB} target='_blank' rel='noreferrer' className='p-2 hover:bg-neutral-700/50 text-neutral-400 hover:text-white duration-200'>
     <AiFillGithub  size={24}/>
   </a>

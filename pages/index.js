@@ -36,13 +36,13 @@ const Home = () => {
   };
 
   return (
-    <div className=" p-8 gap-8 items-center flex-col mx-auto max-w-screen-md">
+    <div className="p-4 md:p-8 gap-8 items-center flex-col mx-auto max-w-screen-md">
       <Head>
         <title>LinkedIn Post Generato</title>
       </Head>
       <div className='text-center'>
-        <h1 className='text-5xl font-bold'>LinkedIn Post Generator</h1>
-        <h6 className='italic  text-lg text-neutral-300/50  mt-4 mb-8'>Tired of thinking what to write for your linkedin update/post ? </h6>
+        <h1 className='text-xl lg:text-5xl font-bold'>LinkedIn Post Generator</h1>
+        <h6 className='italic text-sm md:text-lg text-neutral-300/50  mt-4 mb-8'>Tired of thinking what to write for your linkedin update/post ? </h6>
       </div>
       <div>
 
