@@ -42,23 +42,23 @@ const Home = () => {
       </Head>
       <div className='text-center'>
         <h1 className='text-5xl font-bold'>LinkedIn Post Generator</h1>
-        <h6 className='text-neutral-400 text-xxl mt-4 mb-8'>Tired of thinking what to write for your linkedin update/post ? AI comes to saving ... </h6>
+        <h6 className='italic  text-lg text-neutral-300/50  mt-4 mb-8'>Tired of thinking what to write for your linkedin update/post ? </h6>
       </div>
       <div>
 
         <div className="flex flex-col gap-2 w-full">
-          <label className='text-neutral-400 font-medium text-sm'>Write a linkedin post about... </label>
+          <label className='text-neutral-200/50'>Write a linkedin post about... </label>
     <textarea
     placeholder="Example : sharing my new project , a web app which utilizes GPT-3 ai to generate linkedin post content , built frontend using next.js and tailwindcss"
-    className="prompt-input w-full"
+    className="prompt-input w-full placeholder:text-neutral-600"
     value={userInput}
     onChange={handleUserInputChange}
-    rows={4}
+    rows={6}
     />
   </div>
   <div className="flex justify-end">
 
-    <button disabled={isGenerating} onClick={getGeneratedOutput} className='flex items-center gap-4 rounded-xl mt-4 hover:bg-amber-500 bg-amber-500/90 focus:ring-1 focus:shadow-2xl ring-white active:bg-amber-600 py-2 px-4 duration-200 disabled:brightness-75'>
+    <button disabled={isGenerating} onClick={getGeneratedOutput} className='flex items-center gap-4 rounded-xl mt-4 hover:bg-violet-500 bg-violet-500/90 focus:ring-1 focus:shadow-2xl ring-white active:bg-violet-600 py-2 px-4 duration-200 disabled:brightness-75'>
         {isGenerating ? "Generating":"Generate"}
         {isGenerating && <Spinner/>}
     </button>
