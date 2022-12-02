@@ -49,7 +49,7 @@ const Home = () => {
         <div className="flex flex-col gap-2 w-full">
           <label className='text-neutral-400 font-medium text-sm'>Write a linkedin post about... </label>
     <textarea
-    placeholder="start typing here"
+    placeholder="Example : sharing my new project , a web app which utilizes GPT-3 ai to generate linkedin post content , built frontend using next.js and tailwindcss"
     className="prompt-input w-full"
     value={userInput}
     onChange={handleUserInputChange}
