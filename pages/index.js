@@ -38,11 +38,11 @@ const Home = () => {
   return (
     <div className=" p-8 gap-8 items-center flex-col mx-auto max-w-screen-md">
       <Head>
-        <title>Assignment Helper</title>
+        <title>LinkedIn Post Generato</title>
       </Head>
       <div className='text-center'>
         <h1 className='text-5xl font-bold'>LinkedIn Post Generator</h1>
-        <h6 className='text-neutral-400 text-xxl mt-4 mb-8'></h6>
+        <h6 className='text-neutral-400 text-xxl mt-4 mb-8'>Tired of thinking what to write for your linkedin update/post ? AI comes to saving ... </h6>
       </div>
       <div>
 
